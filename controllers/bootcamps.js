@@ -31,6 +31,12 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   //Finding resource
   query = Bootcamp.find(JSON.parse(queryStr));
 
+  //Select Fields //.split(',') turns fields into an array //.join(' ') turns it into a string
+  if(req.query.select) {
+    const fields = req.query.select.split(',').join(' ')
+    query = query.select(fields);
+  }
+
   //Executing query
   const bootcamps = await query;
 
