@@ -95,6 +95,8 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
     runValidators: true
   });
 
+  console.log(req.body.minimumSkill);
+
   res.status(200).json({
     success: true,
     data: course,
