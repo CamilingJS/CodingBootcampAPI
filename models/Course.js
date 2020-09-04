@@ -38,4 +38,14 @@ const CourseSchema = new mongoose.Schema({
   },
 });
 
+//Call getAverageCost after save
+CourseSchema.post('save', function () {
+
+});
+
+//Call getAverageCost before remove
+CourseSchema.pre('save', function () {
+
+});
+
 module.exports = mongoose.model('Course', CourseSchema);
